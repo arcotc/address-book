@@ -19,4 +19,14 @@ class AddressEntryTest extends FunSuite {
   test("Entry is younger than another entry") {
     assert(!entry2.isOlder(entry1))
   }
+
+  test("Is male") {
+    assert(entry1.isMale)
+    assert(!entry2.isMale)
+  }
+
+  test("Is female") {
+    assert(entry2.isFemale)
+    assert(!entry1.isFemale)
+  }
 }
