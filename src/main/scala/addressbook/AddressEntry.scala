@@ -17,4 +17,12 @@ case class AddressEntry(foreName: String, surname: String, gender: String, dob: 
   def isMale: Boolean = gender.toLowerCase == MALE
 
   def isFemale: Boolean = gender.toLowerCase == FEMALE
+
+  def daysOlder(entryToCompareTo: AddressEntry): Int = {
+    val numberOfDaysBetween = Days.daysBetween(dob, entryToCompareTo.dob).getDays
+    numberOfDaysBetween > 0 match {
+      case true => numberOfDaysBetween
+      case _ => numberOfDaysBetween * -1
+    }
+  }
 }
