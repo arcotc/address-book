@@ -42,4 +42,16 @@ object AddressBook {
       withMonthOfYear(split(1).trim.toInt).
       withDayOfMonth(split(0).trim.toInt)
   }
+
+  def entriesByGender(entries: List[AddressEntry], gender: String) = {
+    entries.filter(entry => entry.gender == gender)
+  }
+
+  def oldest(entries: List[AddressEntry]): AddressEntry = {
+    entries.sortBy(entry => entry.dob.toDate).head
+  }
+
+  def youngest(entries: List[AddressEntry]): AddressEntry = {
+    entries.sortBy(entry => entry.dob.toDate).reverse.head
+  }
 }
